@@ -7,20 +7,13 @@ const fetchCoin = async (id) => {
       params: {
         vs_currency: "usd",
         ids: id,
+        price_change_percentage: "24h,30d,1y",
       },
     }
   );
 
   if (response.data.length > 0) {
-    const {
-      name,
-      symbol,
-      image,
-      current_price: price,
-      price_change_percentage_24h: change,
-    } = response.data[0];
-
-    return { id, name, symbol, image, price, change };
+    return response.data[0];
   } else return "not found";
 };
 
