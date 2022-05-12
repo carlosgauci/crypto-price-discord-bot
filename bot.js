@@ -3,8 +3,8 @@ const { Client, Intents, MessageEmbed } = require("discord.js");
 const { fetchCoin } = require("./fetchCoin.js");
 
 const COMMAND_PREFIX = "!";
-const COMMAND_NAME_PRICE = "price";
-const COMMAND_NAME_DETAILS = "details";
+const COMMAND_PRICE = "price";
+const COMMAND_DETAILS = "details";
 
 const client = new Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
@@ -25,10 +25,7 @@ client.on("messageCreate", async (message) => {
       .split(/\s+/);
     const commandBody = body.join(" ");
 
-    if (
-      commandName === COMMAND_NAME_PRICE ||
-      commandName === COMMAND_NAME_DETAILS
-    ) {
+    if (commandName === COMMAND_PRICE || commandName === COMMAND_DETAILS) {
       try {
         const coin = await fetchCoin(commandBody);
         if (typeof coin === "string") {
@@ -49,7 +46,7 @@ client.on("messageCreate", async (message) => {
             max_supply,
             ath,
           } = coin;
-          if (commandName === COMMAND_NAME_PRICE) {
+          if (commandName === COMMAND_PRICE) {
             const embed = new MessageEmbed()
               .setColor("#00853c")
               .setAuthor({
@@ -66,7 +63,7 @@ client.on("messageCreate", async (message) => {
             message.channel.send({ embeds: [embed] });
           }
 
-          if (commandName === COMMAND_NAME_DETAILS) {
+          if (commandName === COMMAND_DETAILS) {
             const embed = new MessageEmbed()
               .setColor("#00853c")
               .setAuthor({
@@ -132,7 +129,7 @@ client.on("messageCreate", async (message) => {
         message.channel.send("Couldn't fetch data.");
         console.log(error);
       }
-    } else message.channel.send("Command not found.");
+    }
   }
 });
 
