@@ -1,6 +1,6 @@
 # Crypto Price Discord Bot
 
-A simple discord bot that retrieves cryptocurrency prices from the Coingecko API.
+A discord bot that retrieves cryptocurrency prices from the Coingecko API.
 
 ## Instructions
 
@@ -12,12 +12,10 @@ A simple discord bot that retrieves cryptocurrency prices from the Coingecko API
 
 4. Run `npm start` to start the bot.
 
-5. Add the bot to your discord server, and use `!price <coingecko id>` to fetch the current price of a coin, or `!details <coingecko id>` to fetch more details such as market cap and supply. eg: `!details bitcoin`, `!price ethereum`.
+5. Add the bot to your discord server, and use `!crypto price <coingecko id>` to fetch the current price of a coin, or `!crypto info <coingecko id>` to fetch more details such as market cap and supply. eg: `!crypto price bitcoin`, `!crypto info ethereum`.
 
 [List of Coingecko ids](https://docs.google.com/spreadsheets/d/1wTTuxXt8n9q7C4NDXqQpI3wpKu1_5bGVmP9Xz0XGSyU/edit#gid=0)
 
 ## Examples
 
-![!price](https://i.imgur.com/px6JNQK.png)
-
-![!details](https://i.imgur.com/zS2RyAY.png)
+![!crypto](https://i.imgur.com/TL2BYqP.png)
